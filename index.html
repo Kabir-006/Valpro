@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's Program</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #ffe6e6;
+    }
+    
+    #container {
+      text-align: center;
+    }
+    
+    #message {
+      font-size: 1.5rem;
+      color: #ff3366;
+      margin-top: 20px;
+    }
+    
+    .btn {
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      margin: 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    
+    .btn-yes {
+      background-color: #ff3366;
+      color: white;
+    }
+    
+    .btn-no {
+      background-color: #cccccc;
+      color: black;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h1>Will you be my Valentine?</h1>
+    <button class="btn btn-yes" onclick="displayMessage()">Yes</button>
+    <button class="btn btn-no" onmouseover="moveButton(this)">No</button>
+    <div id="message"></div>
+  </div>
+
+  <script>
+    function displayMessage() {
+      document.getElementById('message').innerText = "I knew it!";
+    }
+    
+    function moveButton(button) {
+      const containerWidth = document.getElementById('container').offsetWidth;
+      const containerHeight = document.getElementById('container').offsetHeight;
+
+      const randomX = Math.floor(Math.random() * (containerWidth - button.offsetWidth));
+      const randomY = Math.floor(Math.random() * (containerHeight - button.offsetHeight));
+
+      button.style.position = 'absolute';
+      button.style.left = `${randomX}px`;
+      button.style.top = `${randomY}px`;
+    }
+  </script>
+</body>
+</html>
